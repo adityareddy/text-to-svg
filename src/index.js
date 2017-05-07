@@ -26,6 +26,10 @@ export default class TextToSVG {
   static loadSync(file = DEFAULT_FONT) {
     return new TextToSVG(opentype.loadSync(file));
   }
+  
+  static loadFromArrayBuffer(arrayBuffer) {
+    return new TextToSVG(opentype.parse(arrayBuffer));
+  }
 
   static load(url, cb) {
     opentype.load(url, (err, font) => {
